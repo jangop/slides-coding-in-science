@@ -1,40 +1,191 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="reveal.js/dist/reset.css">
-		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
-		<link rel="stylesheet" href="reveal.js/dist/theme/black.css">
+    <link rel="stylesheet" href="reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="reveal.js/dist/theme/black.css">
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css">
+</head>
 
-		<script src="reveal.js/dist/reveal.js"></script>
-		<script src="reveal.js/plugin/notes/notes.js"></script>
-		<script src="reveal.js/plugin/markdown/markdown.js"></script>
-		<script src="reveal.js/plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+<style>
+    .reveal .cols {
+        display: flex;
+    }
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+    .reveal .col {
+        flex: 1;
+    }
+
+    .reveal ul {
+        list-style: circle;
+    }
+
+    .reveal .orderly {
+        text-align: left;
+    }
+
+    .reveal h2 {
+        text-transform: revert;
+    }
+
+    .reveal h3 {
+        text-transform: revert;
+    }
+
+</style>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h1>Coding Science</h1>
+            <h2>2023</h2>
+            <p>by <a href="https://janphilip.gopfert.eu">Jan Philip Göpfert</a></p>
+        </section>
+        <section>
+            <p>We are scientists. We write code.</p>
+            <p class="fragment">How do we do it right?</p>
+        </section>
+        <section>
+            <h3>Today's Agenda</h3>
+            <div class="cols" style="margin-top: 2em">
+                <div class="col">Principles</div>
+                <div class="col">Tools & Workflows</div>
+                <div class="col">An Example</div>
+            </div>
+        </section>
+        <section>
+            <h3>Part I</h3>
+            <h2 class="fragment">Principles</h2>
+        </section>
+        <section>
+            <div class="orderly">
+                <p>We want code that is</p>
+                <ul>
+                    <li class="fragment"><em>shareable</em>,</li>
+                    <li class="fragment"><em>usable</em>,</li>
+                    <li class="fragment"><em>maintainable</em>.</li>
+                </ul>
+                <p class="fragment">This enables <em>reproducible</em> experiments <br> and <em>collaboration</em>.</p>
+                <p class="fragment">If done right, it also makes life easier for us.</p>
+            </div>
+        </section>
+        <section>
+            <div class="orderly">
+                <h3>Consensus Matters</h3>
+                <p class="fragment">Instead of guessing, see what others do.</p>
+                <p class="fragment">Use <em>conventions</em> and <em>standards</em>.</p>
+                <p class="fragment">Resist the urge to reinvent the wheel!</p>
+            </div>
+        </section>
+        <section>
+            <div class="orderly">
+                <h3>Cognitive Limits Matter</h3>
+                <p class="fragment">We are not only limited by our intellectual capacity, but also by our <em>cognitive
+                    limits</em>.</p>
+                <p class="fragment">Reduce cognitive load!</p>
+            </div>
+        </section>
+        <section>
+            <div class="orderly">
+                <h3>The Environment Evolves</h3>
+                <p class="fragment">These slides will soon be outdated.</p>
+                <p class="fragment">Stay up-to-date and flexible!</p>
+            </div>
+        </section>
+        <section>
+            <div class="orderly">
+                <p>Right now, in 2023, when coding, in Machine Learning, in Science, do the following:</p>
+                <ul>
+                    <li>use Python, unless you cannot</li>
+                    <li>use conda, or manage your environment otherwise</li>
+                    <li>use Git</li>
+                    <li>use GitHub, if you can</li>
+                    <li>use plain text, wherever reasonable</li>
+                    <li>use automation, such as formatters, and test suits</li>
+                    <li>use pip, PEP8, Black, Ruff, pytest, pre-commit</li>
+                    <li>use issues and pull requests, if |you| ≫ 1</li>
+                    <li>only use Jupyter Notebooks for interactive exploration and demos</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h3>Part II</h3>
+            <h2 class="fragment">Tools & Workflows</h2>
+        </section>
+        <section>
+            <h3>Python</h3>
+            <p>Know which version you are using.</p>
+            <pre class="bash">
+                <code data-trim>
+                    jangop@Growlithe ~> python --version
+                    Python 3.10.12
+                </code>
+            </pre>
+            <pre class="bash">
+                <code data-trim>
+                    jangop@Growlithe ~> which python
+                    /home/jangop/miniconda3/bin/python
+                </code>
+            </pre>
+        </section>
+        <section>
+            <p>How does one choose a Python version?</p>
+            <p class="fragment">
+                Go to <a href="https://www.python.org/downloads/">python.org</a>
+                and see which is the latest stable version. Right now, it is 3.12.
+            </p>
+            <p class="fragment">
+                If you rely on a major library, check which version it supports.
+                Numpy and Scikit-Learn usually support the latest version.
+                PyTorch is sometimes a bit behind.
+            </p>
+        </section>
+        <section>
+            <h3>Anaconda</h3>
+            <p class="fragment">You <em>must</em> manage your environment.</p>
+            <p class="fragment">Otherwise, your results <em>will not</em> be reproducible.</p>
+            <p class="fragment">
+                Download and install Miniconda from <a
+                    href="https://docs.conda.io/en/latest/miniconda.html">conda.io</a>.
+            </p>
+            <pre class="bash fragment">
+                <code data-trim>
+                    jangop@Growlithe ~> wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+                    jangop@Growlithe ~> sha256sum Miniconda3-latest-Linux-x86_64.sh
+                    jangop@Growlithe ~> bash Miniconda3-latest-Linux-x86_64.sh
+                </code>
+            </pre>
+        </section>
+        <section>
+            <h3>Git</h3>
+            <p class="fragment">Do not fear branching or merging.</p>
+        </section>
+    </div>
+</div>
+
+<script src="reveal.js/dist/reveal.js"></script>
+<script src="reveal.js/plugin/notes/notes.js"></script>
+<script src="reveal.js/plugin/markdown/markdown.js"></script>
+<script src="reveal.js/plugin/highlight/highlight.js"></script>
+<script src="reveal.js/plugin/math/math.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+    });
+</script>
+</body>
 </html>
