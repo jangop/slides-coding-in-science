@@ -15,6 +15,12 @@
 </head>
 
 <style>
+    /*noinspection CssUnusedSymbol*/
+    .reveal {
+        /*noinspection CssInvalidPropertyValue*/
+        text-wrap: balance;
+    }
+
     .reveal .cols {
         display: flex;
     }
@@ -73,7 +79,7 @@
                     <li class="fragment"><em>usable</em>,</li>
                     <li class="fragment"><em>maintainable</em>.</li>
                 </ul>
-                <p class="fragment">This enables <em>reproducible</em> experiments <br> and <em>collaboration</em>.</p>
+                <p class="fragment">This enables <em>reproducible</em> experiments and <em>collaboration</em>.</p>
                 <p class="fragment">If done right, it also makes life easier for us.</p>
             </div>
         </section>
@@ -137,6 +143,7 @@
             </pre>
         </section>
         <section>
+            <h3>Python</h3>
             <p>How does one choose a Python version?</p>
             <p class="fragment">
                 Go to <a href="https://www.python.org/downloads/">python.org</a>
@@ -150,7 +157,7 @@
         </section>
         <section>
             <h3>Anaconda</h3>
-            <p class="fragment">You <em>must</em> manage your environment.</p>
+            <p>You <em>must</em> manage your environment.</p>
             <p class="fragment">Otherwise, your results <em>will not</em> be reproducible.</p>
             <p class="fragment">
                 Download and install Miniconda from <a
@@ -158,15 +165,98 @@
             </p>
             <pre class="bash fragment">
                 <code data-trim>
-                    jangop@Growlithe ~> wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-                    jangop@Growlithe ~> sha256sum Miniconda3-latest-Linux-x86_64.sh
-                    jangop@Growlithe ~> bash Miniconda3-latest-Linux-x86_64.sh
+                    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+                    sha256sum Miniconda3-latest-Linux-x86_64.sh
+                    bash Miniconda3-latest-Linux-x86_64.sh
                 </code>
             </pre>
         </section>
         <section>
             <h3>Git</h3>
-            <p class="fragment">Do not fear branching or merging.</p>
+            <p>Do not fear branching or merging.</p>
+            <pre class="bash fragment">
+                <code data-trim>
+                    git checkout -b awesome-new-feature
+                </code>
+            </pre>
+            <p class="fragment">Merge via a pull request.</p>
+        </section>
+        <section>
+            <h3>GitHub</h3>
+            <p>Issues are all you need to manage your project, and they are close to the code.</p>
+            <p class="fragment">Pull requests give structure to your progress, your branches, and your merges.</p>
+            <p class="fragment">GitHub Actions handle automation. <br> (More on this later.)</p>
+        </section>
+        <section>
+            <h3>Plain text</h3>
+            <p>Write documentation in plain text and style it adhering to Markdown.</p>
+            <p class="fragment">Write a `README.md`. It should ideally be included in the very first commit.</p>
+            <p class="fragment">Include a `LICENSE`. GitHub helps with this.</p>
+            <p class="fragment">Rely on commit messages, issues, and pull requests to document your progress.</p>
+        </section>
+        <section>
+            <h3>pip & pypi</h3>
+            <p>Use dependencies that are available on pypi.</p>
+            <p class="fragment">Use pip to install dependencies and to install your own package.</p>
+            <p class="fragment">Define dependencies in `pyproject.toml`.</p>
+            <p class="fragment">Keep experiments and demos (e.g. Jupyter Notebooks) separate from your package.</p>
+        </section>
+        <section>
+            <h3>Black & Ruff</h3>
+            <p>Read and follow PEP8.</p>
+            <p class="fragment">Do not waste <em>any</em> time on formatting or discussions about formatting.</p>
+            <p class="fragment">Black styles your code for you.</p>
+            <pre class="bash fragment">
+                <code data-trim>
+                    pip install black
+                    black .
+                </code>
+            </pre>
+            <p class="fragment">Ruff lints (and styles) your code for you.</p>
+            <pre class="bash fragment">
+                <code data-trim>
+                    pip install ruff
+                    ruff .
+                </code>
+            </pre>
+            <p class="fragment">Use pre-commit to automate this!</p>
+        </section>
+        <section>
+            <h3>pre-commit</h3>
+            <p>Git hooks are scripts that run before or after certain actions.</p>
+            <p class="fragment">Hooks that run before a commit are very common and useful to run code formatters.</p>
+            <p class="fragment">pre-commit is a tool that manages your (pre-commit) hooks.</p>
+            <pre class="bash fragment">
+                <code data-trim>
+                    pip install pre-commit
+                    pre-commit install
+                </code>
+            </pre>
+            <p class="fragment">This requires a `.pre-commit-config.yaml` file.</p>
+        </section>
+        <section>
+            <h3>pre-commit configuration</h3>
+            <p>The following is an example `.pre-commit-config.yaml`.</p>
+            <pre class="yaml">
+                <code data-trim>
+                    repos:
+                    -   repo: https://github.com/pre-commit/pre-commit-hooks
+                        rev: v4.5.0
+                        hooks:
+                        -   id: trailing-whitespace
+                        -   id: end-of-file-fixer
+                    -   repo: https://github.com/charliermarsh/ruff-pre-commit
+                        rev: v0.1.0
+                        hooks:
+                        -   id: ruff
+                            args:
+                                - --fix
+                    -   repo: https://github.com/psf/black
+                        rev: 23.10.0
+                        hooks:
+                        -   id: black
+                </code>
+            </pre>
         </section>
     </div>
 </div>
@@ -182,6 +272,7 @@
     // - https://revealjs.com/config/
     Reveal.initialize({
         hash: true,
+        slideNumber: 'c/t',
 
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
