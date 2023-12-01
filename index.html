@@ -58,6 +58,7 @@
         <section>
             <p>We are scientists. We write code.</p>
             <p class="fragment">How do we do it right?</p>
+            <p class="fragment">The following is a compilation of opinions, but not necessarily my own opinions. Instead, they are what I gather as consensus from the community.</p>
         </section>
         <section>
             <h3>Today's Agenda</h3>
@@ -110,15 +111,15 @@
             <div class="orderly">
                 <p>Right now, in 2023, when coding, in Machine Learning, in Science, do the following:</p>
                 <ul>
-                    <li>use Python, unless you cannot</li>
-                    <li>use conda, or manage your environment otherwise</li>
-                    <li>use Git</li>
-                    <li>use GitHub, if you can</li>
-                    <li>use plain text, wherever reasonable</li>
-                    <li>use automation, such as formatters, and test suits</li>
-                    <li>use pip, PEP8, Black, Ruff, pytest, pre-commit</li>
-                    <li>use issues and pull requests, if |you| ≫ 1</li>
-                    <li>only use Jupyter Notebooks for interactive exploration and demos</li>
+                    <li class="fragment">use Python, unless you cannot</li>
+                    <li class="fragment">use conda, or manage your environment otherwise</li>
+                    <li class="fragment">use Git</li>
+                    <li class="fragment">use GitHub, if you can</li>
+                    <li class="fragment">use plain text, wherever reasonable</li>
+                    <li class="fragment">use automation, such as formatters, and test suits</li>
+                    <li class="fragment">use pip, PEP8, Black, Ruff, pytest, pre-commit</li>
+                    <li class="fragment">use issues and pull requests, if |you| ≫ 1</li>
+                    <li class="fragment">only use Jupyter Notebooks for interactive exploration and demos</li>
                 </ul>
             </div>
         </section>
@@ -128,7 +129,7 @@
         </section>
         <section>
             <h3>Python</h3>
-            <p>Know which version you are using.</p>
+            <p class="fragment">Know which version you are using.</p>
             <pre class="bash">
                 <code data-trim>
                     jangop@Growlithe ~> python --version
@@ -144,7 +145,7 @@
         </section>
         <section>
             <h3>Python</h3>
-            <p>How does one choose a Python version?</p>
+            <p class="fragment">How does one choose a Python version?</p>
             <p class="fragment">
                 Go to <a href="https://www.python.org/downloads/">python.org</a>
                 and see which is the latest stable version. Right now, it is 3.12.
@@ -157,7 +158,7 @@
         </section>
         <section>
             <h3>Anaconda</h3>
-            <p>You <em>must</em> manage your environment.</p>
+            <p class="fragment">You <em>must</em> manage your environment.</p>
             <p class="fragment">Otherwise, your results <em>will not</em> be reproducible.</p>
             <p class="fragment">
                 Download and install Miniconda from <a
@@ -173,7 +174,7 @@
         </section>
         <section>
             <h3>Git</h3>
-            <p>Do not fear branching or merging.</p>
+            <p class="fragment">Do not fear branching or merging.</p>
             <pre class="bash fragment">
                 <code data-trim>
                     git checkout -b awesome-new-feature
@@ -183,20 +184,20 @@
         </section>
         <section>
             <h3>GitHub</h3>
-            <p>Issues are all you need to manage your project, and they are close to the code.</p>
+            <p class="fragment">Issues are all you need to manage your project, and they are close to the code.</p>
             <p class="fragment">Pull requests give structure to your progress, your branches, and your merges.</p>
             <p class="fragment">GitHub Actions handle automation. <br> (More on this later.)</p>
         </section>
         <section>
             <h3>Plain text</h3>
-            <p>Write documentation in plain text and style it adhering to Markdown.</p>
+            <p class="fragment">Write documentation in plain text and style it adhering to Markdown.</p>
             <p class="fragment">Write a `README.md`. It should ideally be included in the very first commit.</p>
             <p class="fragment">Include a `LICENSE`. GitHub helps with this.</p>
             <p class="fragment">Rely on commit messages, issues, and pull requests to document your progress.</p>
         </section>
         <section>
             <h3>pip & pypi</h3>
-            <p>Use dependencies that are available on pypi.</p>
+            <p class="fragment">Use dependencies that are available on pypi.</p>
             <p class="fragment">Use pip to install dependencies and to install your own package.</p>
             <p class="fragment">Define dependencies in `pyproject.toml`.</p>
             <p class="fragment">Keep experiments and demos (e.g. Jupyter Notebooks) separate from your package.</p>
@@ -227,7 +228,7 @@
         </section>
         <section>
             <h3>Black & Ruff</h3>
-            <p>Read and follow <a href="https://peps.python.org/pep-0008/">PEP8</a>.</p>
+            <p class="fragment">Read and follow <a href="https://peps.python.org/pep-0008/">PEP8</a>.</p>
             <p class="fragment">Do not waste <em>any</em> time on formatting or discussions about formatting.</p>
             <p class="fragment">Black styles your code for you.</p>
             <pre class="bash fragment">
@@ -247,7 +248,7 @@
         </section>
         <section>
             <h3>pre-commit</h3>
-            <p>Git hooks are scripts that run before or after certain actions.</p>
+            <p class="fragment">Git hooks are scripts that run before or after certain actions.</p>
             <p class="fragment">Hooks that run before a commit are very common and useful to run code formatters.</p>
             <p class="fragment">pre-commit is a tool that manages your (pre-commit) hooks.</p>
             <pre class="bash fragment">
@@ -283,8 +284,8 @@
         </section>
         <section>
             <h3>pytest</h3>
-            <p>You do not need perfect tests to validate your scientific results.</p>
-            <p>Use tests to ensure that your code executes as expected.</p>
+            <p class="fragment">You do not need perfect tests to validate your scientific results.</p>
+            <p class="fragment">Use tests to ensure that your code executes as expected.</p>
         </section>
         <section>
             <h3>Part III</h3>
@@ -303,7 +304,7 @@
         </section>
         <section>
             <h3>requirements.txt</h3>
-            <p>Dependencies should not be declared in requirements.txt. Use pyproject.toml instead!</p>
+            <p class="fragment">Dependencies should not be declared in requirements.txt. Use pyproject.toml instead!</p>
             <p class="fragment">requirements.txt is still useful to pin exact versions of dependencies.</p>
             <p class="fragment">This ensures reproducibility.</p>
             <p class="fragment">Use pip-tools to manage requirements.txt.</p>
@@ -316,12 +317,12 @@
         </section>
         <section>
             <h3>setup.py & setup.cfg</h3>
-            <p>These files were used to make a package installable.</p>
-            <p>They are superseded by pyproject.toml.</p>
+            <p class="fragment">These files were used to make a package installable.</p>
+            <p class="fragment">They are superseded by pyproject.toml.</p>
         </section>
         <section>
             <h3>LaTeX</h3>
-            <p>You can use GitHub Actions to compile LaTeX documents.</p>
+            <p class="fragment">You can use GitHub Actions to compile LaTeX documents.</p>
             <p class="fragment">Keeping LaTeX sources in git makes it easy to tag and compare different versions.</p>
             <p class="fragment">You can compile the current commit's hash into the document's header/footer while working on it.</p>
         </section>
